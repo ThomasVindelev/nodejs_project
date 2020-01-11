@@ -1,22 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="./style.css" type="text/css">
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <title>Login</title>
 </head>
-<body>
 
-    <form action="/login">
-    
-        <input type="text" name="username">
-        <br>
-        <input type="password" name="password">
-        <br>
-        <button type="submit">Login</button>
-        
-    </form>
+<body>
+    <div class="container" style="width: 25%; margin: 250px auto 0 auto;">
+        <div class="card-panel grey lighten-3">
+            <div class="row">
+                <form class="col s12" method="POST" action="/login">
+                    <div class="row">
+                        <div class="col s12">
+                            <div class="input-field col s12">
+                                <input id="email" name="email" type="text" class="validate">
+                                <label for="email">Email</label>
+                            </div>
+                            <div class="input-field col s12">
+                                <input id="password" name="password" type="password" class="validate">
+                                <label for="password">Password</label>
+                            </div>
+                            <div class="row">
+                                <div class="col s12">
+                                    <p class="center-align">
+                                        <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+                                            <i class="material-icons right"></i>
+                                        </button>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
 
 </body>
+
 </html>
