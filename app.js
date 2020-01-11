@@ -7,28 +7,22 @@ const dotenv = require("dotenv");
 dotenv.config();
 
 const app = express();
+
 app.set('view engine', 'ejs');
 app.use(session({ secret: process.env.Secret }))
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.listen(5000, () => { console.log("Listening on port", 5000) });
 
-const dbPath = process.env.DB_CON;
-mongoose.connect(dbPath, {
-    useNewUrlParser: true,
-});
-
+mongoose.connect(process.env.DB_CON, { useNewUrlParser: true });
 const db = mongoose.connection;
-db.on("error", () => {
-    console.log("> error occurred from the database");
-});
-db.once("open", () => {
-    console.log("> successfully opened the database");
-});
 
-app.listen(5000, () => {
-    console.log("Listening on port", 5000);
-})
+db.on("error", () => { console.log("> error occurred from the database") });
+db.once("open", () => { console.log("> successfully opened the database") });
 
+/**
+ * ROUTES
+ */
 app.get("/", (req, res) => {
     res.render('index');
 });
