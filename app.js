@@ -11,6 +11,9 @@ const dbPath = process.env.DB_CON;
 mongoose.connect(dbPath, {
     useNewUrlParser: true,
 });
+
+const test = "test";
+
 const db = mongoose.connection;
 db.on("error", () => {
     console.log("> error occurred from the database");
@@ -29,9 +32,9 @@ app.listen(5000, () => {
 
 app.get("/", (req, res) => {
     User.find({})
-    .then((user) => {
-        if(!user) res.send('Ingen users');
-        res.json(user);
-    })
-    .catch(err => console.log(err));
+        .then((user) => {
+            if (!user) res.send('Ingen users');
+            res.json(user);
+        })
+        .catch(err => console.log(err));
 });
