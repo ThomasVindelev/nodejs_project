@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "app.js",
+    "dev": "nodemon --watch src app.js"
   },
   "repository": {
     "type": "git",
@@ -23,6 +25,7 @@
     "ejs": "^3.0.1",
     "express": "^4.17.1",
     "express-session": "^1.17.0",
-    "mongoose": "^5.8.7"
+    "mongoose": "^5.8.7",
+    "nodemon": "^2.0.2"
   }
 }
