@@ -24,7 +24,7 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 
 app.listen(5000, () => {
-    console.log("listenlog")
+    console.log("Listening on port", 5000);
 })
 
 app.get("/", (req, res) => {
