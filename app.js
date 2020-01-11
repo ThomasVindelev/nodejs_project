@@ -32,6 +32,14 @@ app.get("/dashboard", (req, res) => {
     res.render('dashboard', { user: req.session });
 })
 
+app.get("/dashboard/createuser", (req, res) => {
+    //Admin side
+});
+
+app.post("/create/user", (req, res) => {
+    //Create user functionality.
+});
+
 app.post("/login", (req, res) => {
     User.findOne({
         email: req.body.email,
