@@ -9,7 +9,7 @@ dotenv.config();
 const app = express();
 
 app.set('view engine', 'ejs');
-app.use(session({ secret: process.env.Secret }))
+app.use(session({ secret: process.env.SESSION_SECRET }))
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.listen(5000, () => { console.log("Listening on port", 5000) });
@@ -24,17 +24,14 @@ db.once("open", () => { console.log("> successfully opened the database") });
  * ROUTES
  */
 app.get("/", (req, res) => {
+    if (req.session.loggedin) return res.redirect('/dashboard');
     res.render('index');
 });
 
 app.get("/dashboard", (req, res) => {
-    if (!req.session.loggedin) res.redirect('/');
+    if (!req.session.loggedin) return res.redirect('/');
     res.render('dashboard', { user: req.session });
 })
-
-app.get("/create/user", (req, res) => {
-    
-});
 
 app.post("/login", (req, res) => {
     User.findOne({
@@ -54,3 +51,8 @@ app.post("/login", (req, res) => {
         }
     })
 });
+
+app.post('/logout', (req, res) => {
+    req.session.destroy();
+    return res.redirect('/');
+})
