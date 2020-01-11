@@ -12,7 +12,6 @@ mongoose.connect(dbPath, {
     useNewUrlParser: true,
 });
 
-const test = "test";
 
 const db = mongoose.connection;
 db.on("error", () => {
