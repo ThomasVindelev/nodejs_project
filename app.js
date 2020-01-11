@@ -33,6 +33,10 @@ app.get("/dashboard", (req, res) => {
     res.render('dashboard', { user: req.session });
 })
 
+app.get("/create/user", (req, res) => {
+    
+})
+
 app.post("/login", (req, res) => {
     User.findOne({
         email: req.body.email,
