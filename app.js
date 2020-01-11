@@ -2,10 +2,12 @@ const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const User = require("./User");
+const dotenv = require("dotenv");
+dotenv.config();
 
 const app = express();
 
-const dbPath = "mongodb+srv://admin:chatserverAdmin@chatserver-cluster-eejku.mongodb.net/test?retryWrites=true&w=majority";
+const dbPath = process.env.DB_CON;
 mongoose.connect(dbPath, {
     useNewUrlParser: true,
 });
