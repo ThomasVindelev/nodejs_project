@@ -29,9 +29,9 @@ app.listen(5000, () => {
 
 app.get("/", (req, res) => {
     User.find({})
-    .then((User) => {
-        if(!User) res.send('Ingen users');
-        res.json(User);
+    .then((user) => {
+        if(!user) res.send('Ingen users');
+        res.json(user);
     })
     .catch(err => console.log(err));
 });
